@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { initializeApp, credential, firestore } from 'firebase-admin';
+import * as admin from 'firebase-admin';
 
-let db: firestore.Firestore;
+let db: admin.firestore.Firestore;
 let initialized = false;
 
 function initFirebase() {
@@ -10,11 +10,11 @@ function initFirebase() {
     if (!serviceAccountJson) throw new Error('Missing FIREBASE_SERVICE_ACCOUNT');
     const serviceAccount = JSON.parse(serviceAccountJson);
 
-    initializeApp({
-      credential: credential.cert(serviceAccount),
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
     });
 
-    db = firestore();
+    db = admin.firestore();
     initialized = true;
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf dist",
-    "build": "tsc"
+    "build": "tsc && cd dist && zip -r ../function.zip . && cd .. &&zip -r function.zip node_modules"
   },
   "author": "",
   "license": "ISC",
