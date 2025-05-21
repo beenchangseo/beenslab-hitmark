@@ -37,7 +37,7 @@ function generateSVG(todayHits: number, totalHits: number): string {
       <rect rx="3" width="200" height="20" fill="url(#bg)"/>
       <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">
         <text x="35" y="14">Hits</text>
-        <text x="130" y="14">Today: ${todayHits} | Total: ${totalHits}</text>
+        <text x="135" y="14">Today: ${todayHits} | Total: ${totalHits}</text>
       </g>
     </svg>`;
 }
