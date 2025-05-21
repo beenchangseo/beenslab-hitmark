@@ -1,5 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import * as admin from 'firebase-admin';
+import dotenv from 'dotenv';
+dotenv.config();
 
 let db: admin.firestore.Firestore;
 let initialized = false;
@@ -62,7 +64,7 @@ export const handler = async (
       };
     }
 
-    const docRef = db.collection('beenslab').doc(domain).collection('posts').doc(postId);
+    const docRef = db.collection('blog-hits').doc(domain).collection('posts').doc(postId);
     const today = getTodayDate();
 
     let totalHits = 1;
