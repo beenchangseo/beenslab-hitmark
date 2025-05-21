@@ -46,6 +46,11 @@ export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
   try {
+    if ((event as any).source  === 'eventbridge.warmup') {
+      console.log(' Warm-up ping received');
+      return { statusCode: 200, body: 'warmup ok' };
+    }
+
     initFirebase();
 
     const postId = event.queryStringParameters?.post_id;
